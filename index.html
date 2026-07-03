@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Edit — Shop My Looks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E0D0C;
+    --panel:#161412;
+    --bone:#EDE7DD;
+    --bone-dim:#B7AFA2;
+    --brass:#B8935A;
+    --burgundy:#7A2E3B;
+    --hairline:#33302B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--bone);
+    font-family:'Work Sans', sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:80px;
+  }
+  ::selection{background:var(--brass); color:var(--ink);}
+  .masthead{
+    text-align:center;
+    padding:64px 24px 40px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .avatar{
+    width:88px; height:88px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--brass);
+    margin:0 auto 22px;
+    display:block;
+  }
+  .brand{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(38px, 8vw, 54px);
+    font-weight:500;
+    letter-spacing:0.04em;
+    line-height:1;
+  }
+  .tagline{
+    margin-top:10px;
+    font-size:11px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--bone-dim);
+  }
+  .tagline::before, .tagline::after{content:"— ";}
+  .tagline::after{content:" —";}
+  .featured-wrap{
+    max-width:520px;
+    margin:36px auto 0;
+    padding:0 20px;
+  }
+  .featured-label{
+    font-size:10px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:10px;
+  }
+  .featured-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    border:1px solid var(--brass);
+    padding:18px 20px;
+    position:relative;
+  }
+  .featured-card::before{
+    content:"";
+    position:absolute; top:-1px; bottom:-1px; left:-1px;
+    width:3px;
+    background:var(--brass);
+  }
+  .featured-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    font-style:italic;
+  }
+  .featured-sub{
+    font-size:12px;
+    color:var(--bone-dim);
+    margin-top:4px;
+  }
+  .go{
+    font-size:11px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--brass);
+    padding:9px 16px;
+    white-space:nowrap;
+    text-decoration:none;
+  }
+  .go:hover{background:var(--bone);}
+  .nav{
+    max-width:640px;
+    margin:44px auto 0;
+    padding:0 20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+  }
+  .nav a{
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--bone-dim);
+    text-decoration:none;
+    border:1px solid var(--hairline);
+    padding:7px 13px;
+    transition:.15s;
+  }
+  .nav a:hover{border-color:var(--brass); color:var(--brass);}
+  .catalog{
+    max-width:640px;
+    margin:56px auto 0;
+    padding:0 20px;
+  }
+  .category{margin-bottom:52px;}
+  .cat-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .cat-header .num{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--brass);
+  }
+  .cat-header h2{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:24px;
+    letter-spacing:0.02em;
+  }
+  .cat-header .rule{
+    flex:1;
+    border-top:1px dotted var(--hairline);
+  }
+  .items{list-style:none;}
+  .item{
+    border-bottom:1px solid var(--hairline);
+  }
+  .item a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:14px 2px;
+    text-decoration:none;
+    color:var(--bone);
+    transition:.15s;
+  }
+  .item a:hover{color:var(--brass); padding-left:8px;}
+  .item-name{font-size:15px; font-weight:400;}
+  .item-note{
+    display:block;
+    font-size:11.5px;
+    color:var(--bone-dim);
+    margin-top:2px;
+    font-weight:300;
+  }
+  .arrow{font-size:13px; color:var(--bone-dim); flex-shrink:0;}
+  .item a:hover .arrow{color:var(--brass); transform:translateX(2px);}
+  footer{
+    text-align:center;
+    margin-top:60px;
+    padding:0 20px;
+    color:var(--bone-dim);
+    font-size:11px;
+    letter-spacing:0.08em;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <img class="avatar" src="https://placehold.co/200x200/161412/B8935A?text=%E2%9C%A6&font=playfair-display" alt="Profile photo">
+  <div class="brand">The Edit</div>
+  <div class="tagline">Everything I Wear, Shoppable</div>
+</div>
+
+<div class="featured-wrap">
+  <div class="featured-label">Look of the Day</div>
+  <div class="featured-card">
+    <div>
+      <div class="featured-title">Today's Reel Outfit</div>
+      <div class="featured-sub">Swap this link each time you post</div>
+    </div>
+    <a class="go" href="#" target="_blank" rel="noopener sponsored">Shop</a>
+  </div>
+</div>
+
+<nav class="nav">
+  <a href="#outerwear">Outerwear</a>
+  <a href="#tops">Tops</a>
+  <a href="#denim">Denim &amp; Trousers</a>
+  <a href="#dresses">Dresses</a>
+  <a href="#shoes">Shoes</a>
+  <a href="#bags">Bags &amp; Accessories</a>
+  <a href="#jewelry">Jewelry</a>
+  <a href="#beauty">Beauty</a>
+  <a href="#active">Activewear</a>
+  <a href="#home">Home &amp; Lifestyle</a>
+</nav>
+
+<div class="catalog" id="catalog"></div>
+
+<footer>As an affiliate, I may earn a commission on qualifying purchases.</footer>
+
+<script>
+const CATALOG = [
+  { id:"outerwear", title:"Outerwear", items: Array.from({length:10}, (_,i)=>({name:`Outerwear item ${i+1}`, note:"Add brand + detail", url:"#"})) },
+  { id:"tops", title:"Tops", items: Array.from({length:10}, (_,i)=>({name:`Top item ${i+1}`, note:"Add brand + detail", url:"#"})) },
+  { id:"denim", title:"Denim & Trousers", items: Array.from({length:10}, (_,i)=>({name:`Denim item ${i+1}`, note:"Add brand + detail", url:"#"})) },
+  { id:"dresses", title:"Dresses", items: Array.from({length:10}​​​​​​​​​​​​​​​​
